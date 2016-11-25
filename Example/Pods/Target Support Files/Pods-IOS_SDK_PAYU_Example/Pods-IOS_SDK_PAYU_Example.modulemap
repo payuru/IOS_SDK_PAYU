@@ -1,0 +1,6 @@
+framework module Pods_IOS_SDK_PAYU_Example {
+  umbrella header "Pods-IOS_SDK_PAYU_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

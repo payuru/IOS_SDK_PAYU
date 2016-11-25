@@ -1,0 +1,6 @@
+framework module IOS_SDK_PAYU {
+  umbrella header "IOS_SDK_PAYU-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "IOS_SDK_PAYU",
+  "version": "0.1.0",
+  "summary": "A short description of IOS_SDK_PAYU.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/IOS_SDK_PAYU",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Max": "ixotdog@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/IOS_SDK_PAYU.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "IOS_SDK_PAYU/Classes/**/*"
+}

@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'IOS_SDK_PAYU_Example' do
+  pod 'IOS_SDK_PAYU', :path => '../'
+
+  target 'IOS_SDK_PAYU_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end

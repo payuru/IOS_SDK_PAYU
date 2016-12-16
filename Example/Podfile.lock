@@ -1,13 +1,11 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
-  - IOS_SDK_PAYU (0.1.0)
+  - IOS_SDK_PAYU (0.0.1):
+    - MBProgressHUD
+    - XMLDictionary (~> 1.4)
+  - MBProgressHUD (1.0.0)
+  - XMLDictionary (1.4)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
   - IOS_SDK_PAYU (from `../`)
 
 EXTERNAL SOURCES:
@@ -15,9 +13,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  IOS_SDK_PAYU: a80bf756f6869c5d43346ca8471989973f1f5ac0
+  IOS_SDK_PAYU: d1748218a8903ecca1a3f3f5895ecdc11f608e90
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
-PODFILE CHECKSUM: 4e9d94d9d7eefdb05b88e75635961a9ff2cd59d2
+PODFILE CHECKSUM: 9ddc2192261050a7fb975cd16b16552e0bd51a53
 
 COCOAPODS: 1.2.0.beta.1

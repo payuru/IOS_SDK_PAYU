@@ -12,7 +12,7 @@
 #import "ALUBillClientInfo.h"
 #import "ALUDELIVERYData.h"
 #import "ALUCardInfo.h"
-//#import "XMLDictionary.h"
+#import "XMLDictionary.h"
 
 
 
@@ -22,7 +22,7 @@ typedef enum{
     ALUPayMethodTypeCCVISAMC
 }ALUPayMethodType;
 
-typedef void (^ALUResult)(NSString *response, NSError *error);
+typedef void (^ALUResult)(NSDictionary *response, NSError *error);
 
 
 

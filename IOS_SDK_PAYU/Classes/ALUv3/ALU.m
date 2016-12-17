@@ -7,6 +7,7 @@
 //
 
 #import "ALU.h"
+#import "XMLDictionary.h"
 #include <CommonCrypto/CommonDigest.h>
 #include <CommonCrypto/CommonHMAC.h>
 
@@ -101,7 +102,7 @@
     [payHelper addObject:BIllCLIENTINFO.BILL_ADDRESS key:@"BILL_ADDRESS" hash:YES];
     [payHelper addObject:BIllCLIENTINFO.BILL_ADDRESS2 key:@"BILL_ADDRESS2" hash:YES];
     [payHelper addObject:BIllCLIENTINFO.BILL_CITY key:@"BILL_CITY" hash:YES];
-    [payHelper addObject:BIllCLIENTINFO.BILL_COUNTRYCODE key:@"BILL_COUNTRYCODE" hash:YES];
+    [payHelper addObject:CountryCodeString(BIllCLIENTINFO.BILL_COUNTRYCODE) key:@"BILL_COUNTRYCODE" hash:YES];
     [payHelper addObject:BIllCLIENTINFO.BILL_EMAIL key:@"BILL_EMAIL" hash:YES];
     [payHelper addObject:BIllCLIENTINFO.BILL_FAX key:@"BILL_FAX" hash:YES];
     [payHelper addObject:BIllCLIENTINFO.BILL_FNAME key:@"BILL_FNAME" hash:YES];
@@ -181,15 +182,12 @@
     NSString *hmac = [self HMACWithSourceAndSecret:hashString secret:SECRET_KEY];
     
    // NSLog(@"hashs\n%@",hashs);
-    NSLog(@"postString\n%@",postString);
-    NSLog(@"hashString\n%@",hashString);
-    NSLog(@"hmac\n%@",hmac);
+   // NSLog(@"postString\n%@",postString);
+   // NSLog(@"hashString\n%@",hashString);
+   // NSLog(@"hmac\n%@",hmac);
     
     postString = [postString stringByAppendingString:[NSString stringWithFormat:@"&ORDER_HASH=%@", hmac]];
-   // NSLog(@"%@",postString);
-
     NSData *postData =  [postString dataUsingEncoding:NSUTF8StringEncoding];
-   // NSLog(@"%@",postData);
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://secure.payu.ru/order/alu/v3"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0f];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:postData];
@@ -203,7 +201,7 @@
                 self.completionHandler(nil,error);
             }
             else{
-                NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                NSDictionary *result =[NSDictionary dictionaryWithXMLData:data];
                 self.completionHandler(result,nil);
             }
         });

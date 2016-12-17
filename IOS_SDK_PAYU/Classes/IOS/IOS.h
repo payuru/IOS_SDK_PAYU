@@ -8,19 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^IOSResult)(NSData *response, NSError *error);
+typedef void (^IOSResult)(NSDictionary *response, NSError *error);
 
 @interface IOS : NSObject{
     IOSResult completionHandler;
     
     NSString *SECRET_KEY;
+    NSString *MERCHANT;
+    NSString *REFNOEXT;
 }
 
--(id)initWithSecretKey:(NSString*)_SECRET_KEY;
+-(id)initWithSecretKey:(NSString*)_SECRET_KEY Merchant:(NSString*)_MERCHANT Refnoext:(NSString*)_REFNOEXT;
 
 @property (copy) IOSResult completionHandler;
 
--(void)sendIOSRequest:(NSMutableDictionary*)orderDetails withResult:(IOSResult)result;
+-(void)sendIOSRequestWithResult:(IOSResult)result;
 
 @end
 

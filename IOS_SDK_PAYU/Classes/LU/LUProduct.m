@@ -18,7 +18,7 @@
 @synthesize vat;
 @synthesize pgGroup;
 @synthesize pinfo;
-@synthesize priceType;
+//@synthesize priceType;
 
 
 -(id)initLUProductWithName:(NSString*)Name code:(NSString*)Code price:(NSNumber*)Price qty:(NSUInteger)Qty vat:(NSUInteger)Vat{
@@ -29,7 +29,7 @@
         price=Price;
         qty=Qty;
         vat=Vat;
-        priceType=NET;
+        //priceType=NET;
     }
     return self;
 }

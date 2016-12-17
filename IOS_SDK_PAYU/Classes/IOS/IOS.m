@@ -26,6 +26,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#import "XMLDictionary.h"
 
 @implementation IOS
 
@@ -33,17 +34,20 @@
 
 #pragma mark - init
 
--(id)initWithSecretKey:(NSString*)_SECRET_KEY{
+-(id)initWithSecretKey:(NSString*)_SECRET_KEY Merchant:(NSString*)_MERCHANT Refnoext:(NSString*)_REFNOEXT{
     self  = [super init];
-    
-    SECRET_KEY = [[NSString alloc] initWithString:_SECRET_KEY];
+    if(self){
+        SECRET_KEY = [[NSString alloc] initWithString:_SECRET_KEY];
+        MERCHANT=[[NSString alloc] initWithString:_MERCHANT];
+        REFNOEXT=[[NSString alloc] initWithString:_REFNOEXT];
+    }
     
     return self;
 }
 
--(void)sendIOSRequest:(NSMutableDictionary*)orderDetails withResult:(IOSResult)result{
+-(void)sendIOSRequestWithResult:(IOSResult)result{
     self.completionHandler = result;
-    
+    NSDictionary *orderDetails=[NSDictionary dictionaryWithObjectsAndKeys:MERCHANT,@"MERCHANT",REFNOEXT,@"REFNOEXT", nil];
     NSArray * sortedKeys = [[orderDetails allKeys] sortedArrayUsingSelector: @selector(caseInsensitiveCompare:)];
     
     NSMutableArray *parts = [NSMutableArray new];
@@ -56,17 +60,10 @@
         NSString *part = [NSString stringWithFormat:@"%@=%@", encodedKey, encodedValue];
         [parts addObject:part];
         
-//        if ([encodedKey isEqualToString:@"MERCHANT"]
-//            || [encodedKey isEqualToString:@"REFNOEXT"]) {
-//            continue;
-//        }
-        
+  
         NSString *hashString = [NSString stringWithFormat:@"%lu%@",(unsigned long)encodedValue.length,encodedValue];
         [hashs addObject:hashString];
     }
-    
-  //  [hashs insertObject:[NSString stringWithFormat:@"%d%@",[[orderDetails valueForKey:@"MERCHANT"] length],[orderDetails valueForKey:@"MERCHANT"]] atIndex:0];
- //   [hashs insertObject:[NSString stringWithFormat:@"%d%@",[[orderDetails valueForKey:@"REFNOEXT"] length],[orderDetails valueForKey:@"REFNOEXT"]] atIndex:1];
     
     NSString *postString = [parts componentsJoinedByString:@"&"];
     NSString *hashString = [hashs componentsJoinedByString:@""];
@@ -87,7 +84,7 @@
                 self.completionHandler(nil,error);
             }
             else{
-                self.completionHandler(data,nil);
+                self.completionHandler([NSDictionary dictionaryWithXMLData:data],nil);
             }
         });
     });

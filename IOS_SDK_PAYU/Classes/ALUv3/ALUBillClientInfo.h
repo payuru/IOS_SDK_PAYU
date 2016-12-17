@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CountryCode.h"
 
 @interface ALUBillClientInfo : NSObject{
     NSString *BILL_FNAME;
     NSString *BILL_LNAME;
     NSString *BILL_EMAIL;
     NSString *BILL_PHONE;
-    NSString *BILL_COUNTRYCODE;
+    CountryCode BILL_COUNTRYCODE;
     
     
     // необязательные поля
@@ -29,7 +30,7 @@
 @property (nonatomic,readonly) NSString *BILL_LNAME;
 @property (nonatomic,readonly) NSString *BILL_EMAIL;
 @property (nonatomic,readonly) NSString *BILL_PHONE;
-@property (nonatomic,readonly) NSString *BILL_COUNTRYCODE;
+@property (nonatomic,readonly) CountryCode BILL_COUNTRYCODE;;
 
 // необязательные поля
 @property (nonatomic,strong) NSString *BILL_FAX;
@@ -41,5 +42,5 @@
 
 
 
--(id) initWithFNAME:(NSString*)fName LNAME:(NSString*)lName EMAIL:(NSString*)email PHONE:(NSString*)phone COUNTRYCODE:(NSString*)countryCode;
+-(id) initWithFNAME:(NSString*)fName LNAME:(NSString*)lName EMAIL:(NSString*)email PHONE:(NSString*)phone COUNTRYCODE:(CountryCode)countryCode;
 @end

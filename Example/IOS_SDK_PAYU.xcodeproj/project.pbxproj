@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		50AAC8D31DEA22950048EF88 /* PAYU_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AAC8D21DEA22950048EF88 /* PAYU_Logo.png */; };
 		50AAC8DA1DEA22C80048EF88 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AAC8D61DEA22C80048EF88 /* MainTableViewController.m */; };
-		50AAC8DB1DEA22C80048EF88 /* orderLUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AAC8D91DEA22C80048EF88 /* orderLUViewController.m */; };
 		50C5ACDA1DEA2D520005E338 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50C5ACD91DEA2D520005E338 /* LaunchScreen.storyboard */; };
+		50E8736F1E05DF5200871C61 /* LUExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E8736E1E05DF5200871C61 /* LUExampleViewController.m */; };
+		50E873731E05DF8A00871C61 /* ALUExampleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E873721E05DF8A00871C61 /* ALUExampleRequest.m */; };
+		50E873771E05E55D00871C61 /* IOSExampleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E873761E05E55D00871C61 /* IOSExampleRequest.m */; };
+		50E8737B1E05E6B100871C61 /* IRNExampleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E8737A1E05E6B100871C61 /* IRNExampleRequest.m */; };
 		5AF072567699E0E5EC9ADCF0 /* Pods_IOS_SDK_PAYU_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB8D0583D231624AC5BD279 /* Pods_IOS_SDK_PAYU_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -45,9 +48,15 @@
 		50AAC8D21DEA22950048EF88 /* PAYU_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PAYU_Logo.png; sourceTree = "<group>"; };
 		50AAC8D51DEA22C80048EF88 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
 		50AAC8D61DEA22C80048EF88 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
-		50AAC8D81DEA22C80048EF88 /* orderLUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderLUViewController.h; sourceTree = "<group>"; };
-		50AAC8D91DEA22C80048EF88 /* orderLUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderLUViewController.m; sourceTree = "<group>"; };
 		50C5ACD91DEA2D520005E338 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = IOS_SDK_PAYU/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		50E8736D1E05DF5200871C61 /* LUExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LUExampleViewController.h; sourceTree = "<group>"; };
+		50E8736E1E05DF5200871C61 /* LUExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LUExampleViewController.m; sourceTree = "<group>"; };
+		50E873711E05DF8A00871C61 /* ALUExampleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALUExampleRequest.h; sourceTree = "<group>"; };
+		50E873721E05DF8A00871C61 /* ALUExampleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALUExampleRequest.m; sourceTree = "<group>"; };
+		50E873751E05E55D00871C61 /* IOSExampleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSExampleRequest.h; sourceTree = "<group>"; };
+		50E873761E05E55D00871C61 /* IOSExampleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOSExampleRequest.m; sourceTree = "<group>"; };
+		50E873791E05E6B100871C61 /* IRNExampleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRNExampleRequest.h; sourceTree = "<group>"; };
+		50E8737A1E05E6B100871C61 /* IRNExampleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRNExampleRequest.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* IOS_SDK_PAYU_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_SDK_PAYU_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,14 +137,44 @@
 			path = Classes/MainTableViewController;
 			sourceTree = "<group>";
 		};
-		50AAC8D71DEA22C80048EF88 /* orderLUViewController */ = {
+		50E8736C1E05DF5200871C61 /* LUExampleViewController */ = {
 			isa = PBXGroup;
 			children = (
-				50AAC8D81DEA22C80048EF88 /* orderLUViewController.h */,
-				50AAC8D91DEA22C80048EF88 /* orderLUViewController.m */,
+				50E8736D1E05DF5200871C61 /* LUExampleViewController.h */,
+				50E8736E1E05DF5200871C61 /* LUExampleViewController.m */,
 			);
-			name = orderLUViewController;
-			path = Classes/orderLUViewController;
+			name = LUExampleViewController;
+			path = Classes/MainTableViewController/LUExampleViewController;
+			sourceTree = "<group>";
+		};
+		50E873701E05DF7A00871C61 /* ALUExampleRequest */ = {
+			isa = PBXGroup;
+			children = (
+				50E873711E05DF8A00871C61 /* ALUExampleRequest.h */,
+				50E873721E05DF8A00871C61 /* ALUExampleRequest.m */,
+			);
+			name = ALUExampleRequest;
+			path = Classes/ALUExampleRequest;
+			sourceTree = "<group>";
+		};
+		50E873741E05E55000871C61 /* IOSExampleRequest */ = {
+			isa = PBXGroup;
+			children = (
+				50E873751E05E55D00871C61 /* IOSExampleRequest.h */,
+				50E873761E05E55D00871C61 /* IOSExampleRequest.m */,
+			);
+			name = IOSExampleRequest;
+			path = Classes/IOSExampleRequest;
+			sourceTree = "<group>";
+		};
+		50E873781E05E6A800871C61 /* IRNExampleRequest */ = {
+			isa = PBXGroup;
+			children = (
+				50E873791E05E6B100871C61 /* IRNExampleRequest.h */,
+				50E8737A1E05E6B100871C61 /* IRNExampleRequest.m */,
+			);
+			name = IRNExampleRequest;
+			path = Classes/IRNExampleRequest;
 			sourceTree = "<group>";
 		};
 		6003F581195388D10070C39A = {
@@ -178,7 +217,10 @@
 				6003F59C195388D20070C39A /* IOS_SDK_PAYUAppDelegate.h */,
 				6003F59D195388D20070C39A /* IOS_SDK_PAYUAppDelegate.m */,
 				50AAC8D41DEA22C80048EF88 /* MainTableViewController */,
-				50AAC8D71DEA22C80048EF88 /* orderLUViewController */,
+				50E8736C1E05DF5200871C61 /* LUExampleViewController */,
+				50E873701E05DF7A00871C61 /* ALUExampleRequest */,
+				50E873741E05E55000871C61 /* IOSExampleRequest */,
+				50E873781E05E6A800871C61 /* IRNExampleRequest */,
 				50AAC8D01DEA22950048EF88 /* Resources */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -289,7 +331,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = IOS_SDK_PAYU;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Max;
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -437,9 +479,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50E8737B1E05E6B100871C61 /* IRNExampleRequest.m in Sources */,
+				50E873771E05E55D00871C61 /* IOSExampleRequest.m in Sources */,
+				50E8736F1E05DF5200871C61 /* LUExampleViewController.m in Sources */,
 				6003F59E195388D20070C39A /* IOS_SDK_PAYUAppDelegate.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				50AAC8DB1DEA22C80048EF88 /* orderLUViewController.m in Sources */,
+				50E873731E05DF8A00871C61 /* ALUExampleRequest.m in Sources */,
 				50AAC8DA1DEA22C80048EF88 /* MainTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,14 +540,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -535,13 +585,18 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -564,6 +619,7 @@
 				GCC_PREFIX_HEADER = "IOS_SDK_PAYU/IOS_SDK_PAYU-Prefix.pch";
 				INFOPLIST_FILE = "IOS_SDK_PAYU/IOS_SDK_PAYU-Info.plist";
 				MODULE_NAME = ExampleApp;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

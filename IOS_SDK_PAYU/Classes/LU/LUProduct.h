@@ -19,7 +19,7 @@
     //необязательные поля
     NSString *pgGroup;// ORDER_PGROUP[] //Массив данных с идентификаторами групп продуктов (услуг). Необязательное поле.
     NSString *pinfo;// ORDER_PINFO[] //Массив данных с дополнительной информацией о продукте. В случае оформления формы заказа услуги с абонентской платы, в этом поле могут указываться реквизиты. Например, в поле названия указывается тип платежа, а в этом поле - номер лицевого счета. В IPN-запросе при этом вернётся значения поля ORDER_PINFO, которое потом удобно записать сразу в базу данных.
-    PriceType priceType;
+   // PriceType priceType;
     
     
 }
@@ -33,7 +33,7 @@
 @property (nonatomic,readonly) NSUInteger vat;
 @property (nonatomic,strong) NSString *pgGroup;
 @property (nonatomic,strong) NSString *pinfo;
-@property (nonatomic,readwrite) PriceType priceType;
+//@property (nonatomic,readwrite) PriceType priceType;
 
 
 @end

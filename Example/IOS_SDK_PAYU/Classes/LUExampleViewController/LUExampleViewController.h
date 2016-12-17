@@ -12,7 +12,7 @@
 #define SHOW_PORGRESS(x) [MBProgressHUD showHUDAddedTo:x animated:YES]
 #define HIDE_PORGRESS(x) [MBProgressHUD hideHUDForView:x animated:YES]
 
-@interface orderLUViewController : UIViewController <UIWebViewDelegate>{
+@interface LUExampleViewController : UIViewController <UIWebViewDelegate>{
 
 }
 

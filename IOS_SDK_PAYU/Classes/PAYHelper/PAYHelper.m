@@ -147,7 +147,6 @@
             [str appendFormat:@"%lu%@", [product.qtyString lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , product.qtyString];
         if(product.vatString!=nil)
             [str appendFormat:@"%lu%@", [product.vatString lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , product.vatString];
-        NSString *priceT=PriceTypeString(product.priceType);
       //  [str appendFormat:@"%lu%@", [priceT lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , priceT];
     }
    

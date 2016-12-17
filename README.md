@@ -22,7 +22,7 @@ pod "IOS_SDK_PAYU"
 
 ## Author
 
-Max, ixotdog@gmail.com
+Maxim Melikhov, melikhov@ipolh.com
 
 ## License
 

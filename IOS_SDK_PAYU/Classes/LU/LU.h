@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LUProduct.h"
-
+#import "CountryCode.h"
 #define LUPAY_METHODTypeString(PayMetodType) [@[@"CCVISAMC",@"WEBMONEY",@"QIWI",@"YANDEX",@"EUROSET_SVYAZNOI",@"ALFACLICK"] objectAtIndex:PayMetodType]
 
 typedef enum{
@@ -20,6 +20,13 @@ typedef enum{
     LUPayMethodTypeALFACLICK
 }LUPayMethodType;
 
+typedef enum{
+    LUErrorDataEmptyMERCHANT,
+    LUErrorDataEmptyORDER_REF,
+    LUErrorDataEmptyPRODUCTS,
+    LUErrorDataEmptyORDER_DATE
+}LUErrorInputData;
+
 @interface LU : NSObject{
     PAYHelper *payHelper;
     // Данные покупателя
@@ -27,7 +34,7 @@ typedef enum{
     NSString * BILL_LNAME;
     NSString * BILL_EMAIL;
     NSString * BILL_PHONE;
-    NSString * BILL_COUNTRYCODE;
+    CountryCode BILL_COUNTRYCODE;
     
     NSMutableArray *products;
     NSString *SECRET_KEY;
@@ -84,8 +91,6 @@ typedef enum{
 @property (nonatomic,strong) NSNumber *ORDER_SHIPPING;
 @property (nonatomic,readwrite) PRICES_CURRENCYType PRICES_CURRENCY;
 @property (nonatomic,readwrite) NSNumber *DISCOUNT;
-@property (nonatomic,strong) NSString *DESTINATION_CITY;
-@property (nonatomic,strong) NSString *DESTINATION_STATE;
 @property (nonatomic,readwrite) LUPayMethodType PAY_METHOD;
 @property (nonatomic,readwrite) BOOL TESTORDER;
 @property (nonatomic,readwrite) BOOL  Debug;
@@ -100,7 +105,7 @@ typedef enum{
 @property (nonatomic,strong) NSString * BILL_LNAME;
 @property (nonatomic,strong) NSString * BILL_EMAIL;
 @property (nonatomic,strong) NSString * BILL_PHONE;
-@property (nonatomic,strong) NSString * BILL_COUNTRYCODE;
+@property (nonatomic,readwrite) CountryCode BILL_COUNTRYCODE;
 
 
 -(id)initWithSecretKey:(NSString*)secretKey merchant:(NSString*)merchant orderRef:(NSString*)orderRef orderDate:(NSString*)orderDate;

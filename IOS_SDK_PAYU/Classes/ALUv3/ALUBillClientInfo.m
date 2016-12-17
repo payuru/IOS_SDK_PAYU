@@ -7,7 +7,6 @@
 //
 
 #import "ALUBillClientInfo.h"
-
 @implementation ALUBillClientInfo
 @synthesize BILL_FNAME;
 @synthesize BILL_LNAME;
@@ -22,7 +21,7 @@
 @synthesize BILL_ZIPCODE;
 @synthesize BILL_STATE;
 
--(id) initWithFNAME:(NSString*)fName LNAME:(NSString*)lName EMAIL:(NSString*)email PHONE:(NSString*)phone COUNTRYCODE:(NSString*)countryCode{
+-(id) initWithFNAME:(NSString*)fName LNAME:(NSString*)lName EMAIL:(NSString*)email PHONE:(NSString*)phone COUNTRYCODE:(CountryCode)countryCode{
     self=[super init];
     if(self){
         BILL_FNAME=fName;

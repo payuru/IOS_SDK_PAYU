@@ -7,7 +7,10 @@
 //
 
 #import "LU.h"
+#import "XMLDictionary.h"
 #import "NSData+Base64.h"
+#import "MCMutableArray.h"
+
 #include <CommonCrypto/CommonDigest.h>
 #include <CommonCrypto/CommonHMAC.h>
 
@@ -33,8 +36,6 @@
 @synthesize ORDER_SHIPPING;
 @synthesize PRICES_CURRENCY;
 @synthesize DISCOUNT;
-@synthesize DESTINATION_CITY;
-@synthesize DESTINATION_STATE;
 @synthesize PAY_METHOD;
 @synthesize TESTORDER;
 @synthesize Debug;
@@ -61,6 +62,7 @@
         TESTORDER=NO;
         Debug=NO;
         AUTOMODE=NO;
+        BILL_COUNTRYCODE=CountryCodeNone;
         payHelper=[[PAYHelper alloc] init];
     }
     return self;
@@ -94,68 +96,121 @@
 }
 
 - (NSMutableURLRequest *)getLURequstWitherror:(NSError**)error{
+    MCMutableArray *parts = [MCMutableArray new];
+    MCMutableArray *hashs = [MCMutableArray new];
+    [parts addObject:BoolToSTR(AUTOMODE) key:@"AUTOMODE"];
+    if(![parts addObject:MERCHANT key:@"MERCHANT"])
+        *error= [NSError errorWithDomain:@"LUErrorInputData" code:LUErrorDataEmptyMERCHANT userInfo:nil];
+    [hashs addHash:MERCHANT];
+
+    if(![parts addObject:ORDER_REF key:@"ORDER_REF"])
+        *error=[NSError errorWithDomain:@"LUErrorInputData" code:LUErrorDataEmptyORDER_REF userInfo:nil];
+
+    [hashs addHash:ORDER_REF];
+
+    if(![parts addObject:ORDER_DATE key:@"ORDER_DATE"])
+        *error=[NSError errorWithDomain:@"LUErrorInputData" code:LUErrorDataEmptyORDER_DATE userInfo:nil];
+    [hashs addHash:ORDER_DATE];
 
     
+    //Информация о платильщике
     
-    [payHelper addObject:MERCHANT key:@"MERCHANT" hash:YES];
-    [payHelper addObject:ORDER_REF key:@"ORDER_REF" hash:YES];
-    [payHelper addObject:ORDER_DATE key:@"ORDER_DATE" hash:YES];
+    [parts addObject:BILL_FNAME key:@"BILL_FNAME"];
+    [parts addObject:BILL_LNAME key:@"BILL_LNAME"];
+    [parts addObject:BILL_EMAIL key:@"BILL_EMAIL"];
+    [parts addObject:BILL_PHONE key:@"BILL_PHONE"];
+    [parts addObject:CountryCodeString(BILL_COUNTRYCODE) key:@"BILL_COUNTRYCODE"];
+    [parts addObject:LanguageTypeString(LANGUAGE) key:@"LANGUAGE"];
+    
+    
+    
+    //products
+    if([products count]==0)
+        *error=[NSError errorWithDomain:@"LUErrorInputData" code:LUErrorDataEmptyPRODUCTS userInfo:nil];
 
-    [payHelper addObject:BILL_FNAME key:@"BILL_FNAME" hash:NO];
-    [payHelper addObject:BILL_LNAME key:@"BILL_LNAME" hash:NO];
-    [payHelper addObject:BILL_EMAIL key:@"BILL_EMAIL" hash:NO];
-    [payHelper addObject:BILL_PHONE key:@"BILL_PHONE" hash:NO];
-    [payHelper addObject:BACK_REF key:@"BACK_REF" hash:NO];
-    [payHelper addObject:BILL_COUNTRYCODE key:@"BILL_COUNTRYCODE" hash:NO];
-    [payHelper addObject:LanguageTypeString(LANGUAGE) key:@"LANGUAGE" hash:NO];
-    
-    [payHelper addObject:DESTINATION_CITY key:@"DESTINATION_CITY" hash:NO];
-    [payHelper addObject:DESTINATION_STATE key:@"DESTINATION_STATE" hash:NO];
-  
-
-    
-    [payHelper addObject:[ORDER_SHIPPING stringValue] key:@"ORDER_SHIPPING" hash:NO];
-    
-    if(PRICES_CURRENCY!=NONE){
-        [payHelper addObject:PriceCurrencyTypeString(PRICES_CURRENCY) key:@"PRICES_CURRENCY" hash:YES];
+    if (*error!=nil)
+        return nil;
+    for (LUProduct *product in products) {
+        [parts addObject:product.name key:@"ORDER_PNAME[]"];
+        [hashs addHash:product.name];
     }
     
-    [payHelper addObject:[DISCOUNT stringValue] key:@"DISCOUNT" hash:NO];
+    for (LUProduct *product in products) {
+        [parts addObject:product.code key:@"ORDER_PCODE[]"];
+        [hashs addHash:product.code];
+    }
+    
+    for (LUProduct *product in products) {
+        [parts addObject:[product.price stringValue] key:@"ORDER_PRICE[]"];
+        [hashs addHash:[product.price stringValue]];
+    }
+    
+    
+    
+    for (LUProduct *product in products) {
+        [parts addObject:product.qtyString key:@"ORDER_QTY[]"];
+        [hashs addHash:product.qtyString];
+    }
+    
+    for (LUProduct *product in products) {
+        [parts addObject:product.vatString key:@"ORDER_VAT[]"];
+        [hashs addHash:product.vatString];
+    }
+    
    
-    [payHelper addObject:LUPAY_METHODTypeString(PAY_METHOD)  key:@"PAY_METHOD" hash:YES];
+    for (LUProduct *product in products) {
+        [parts addObject:product.pgGroup key:@"ORDER_PGROUP[]"];
+        [hashs addHash:product.pgGroup];
+        
+    }
     
-    [payHelper addObject:[ORDER_TIMEOUT stringValue]  key:@"ORDER_TIMEOUT" hash:NO];
+    for (LUProduct *product in products) {
+        [parts addObject:product.pinfo key:@"ORDER_PINFO[]"];
+        [hashs addHash:product.pinfo];
+    }
     
-    [payHelper addObject:TIMEOUT_URL  key:@"TIMEOUT_URL" hash:NO];
     
-    [payHelper addObject:[NSString stringWithFormat:@"%d",AUTOMODE] key:@"AUTOMODE" hash:NO];
-    [payHelper addObject:[NSString stringWithFormat:@"%d",DEBUG] key:@"DEBUG" hash:NO];
-    [payHelper addObject:BoolToSTR(TESTORDER) key:@"TESTORDER" hash:NO];
-   
-
-    NSString *postString =[payHelper LUpostStringWithProducts:products];
-    NSString *hashString = [payHelper LUhashStringWithProducts:products];
+    [parts addObject:[ORDER_SHIPPING stringValue] key:@"ORDER_SHIPPING"];
+    [hashs addHash:[ORDER_SHIPPING stringValue]];
     
-  //  hashString =[NSString stringWithFormat:@"%@%@",hashString,(TESTORDER?@"4TRUE":@"")];
-  NSString *hmac = [self HMACWithSourceAndSecret:hashString secret:SECRET_KEY];
+    if(PRICES_CURRENCY!=NONE){
+        [parts addObject:PriceCurrencyTypeString(PRICES_CURRENCY) key:@"PRICES_CURRENCY"];
+        [hashs addHash:PriceCurrencyTypeString(PRICES_CURRENCY)];
+    }
     
-   // NSLog(@"hashs\n%@",hashs);
-    NSLog(@"postString\n%@",postString);
-    NSLog(@"hashString\n%@",hashString);
-    NSLog(@"hmac\n%@",hmac);
-
-  postString = [postString stringByAppendingString:[NSString stringWithFormat:@"&ORDER_HASH=%@", hmac]];
+    [parts addObject:[DISCOUNT stringValue] key:@"DISCOUNT"];
+    [hashs addHash:[DISCOUNT stringValue]];
+    
+    [parts addObject:LUPAY_METHODTypeString(PAY_METHOD)  key:@"PAY_METHOD"];
+    [hashs addHash:LUPAY_METHODTypeString(PAY_METHOD)];
+    
+    [parts addObject:[ORDER_TIMEOUT stringValue]  key:@"ORDER_TIMEOUT"];
+    [hashs addHash:[ORDER_TIMEOUT stringValue]];
+    
+    [parts addObject:TIMEOUT_URL  key:@"TIMEOUT_URL"];
+    [hashs addHash:TIMEOUT_URL];
+    
+    [parts addObject:BoolToSTR(Debug) key:@"DEBUG"];
+    [parts addObject:BoolToSTR(TESTORDER) key:@"TESTORDER"];
+    
+    
+    NSString *postString =[parts componentsJoinedByString:@"&"]; //[parts postString];
+    NSString *hashString = [hashs componentsJoinedByString:@""];
+    hashString =[NSString stringWithFormat:@"%@%@",hashString,(TESTORDER?@"4TRUE":@"")];
+    NSString *hmac = [self HMACWithSourceAndSecret:hashString secret:SECRET_KEY];
+    
+    postString = [postString stringByAppendingString:[NSString stringWithFormat:@"&ORDER_HASH=%@", hmac]];
     //NSLog(@"%@",postString);
-  NSData *postData =  [postString dataUsingEncoding:NSUTF8StringEncoding];
-
-
-  NSURL* URL = [NSURL URLWithString:@"https://secure.payu.ru/order/lu.php"];
-  NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:URL];
-  [request addValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-  [request setHTTPMethod:@"POST"];
-  [request setHTTPBody:postData];
-
-  return request;
+    NSData *postData =  [postString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSURL* URL = [NSURL URLWithString:@"https://secure.payu.ru/order/lu.php"];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:URL];
+    [request addValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:postData];
+    
+    return request;
 }
 
 - (NSString *)HMACWithSourceAndSecret:(NSString *)source secret:(NSString *)secret

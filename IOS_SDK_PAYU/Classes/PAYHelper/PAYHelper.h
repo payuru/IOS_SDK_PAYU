@@ -9,18 +9,20 @@
 #define LanguageTypeString(LanguageType) [@[@"EN",@"RO",@"HU",@"RU",@"DE",@"FR",@"IT",@"ES"] objectAtIndex:LanguageType]
 
 typedef enum{
-    EN,
-    RO,
-    HU,
-    RU,
-    DE,
-    FR,
-    IT,
-    ES
+    LanguageTypeEN,
+    LanguageTypeRO,
+    LanguageTypeHU,
+    LanguageTypeRU,
+    LanguageTypeDE,
+    LanguageTypeFR,
+    LanguageTypeIT,
+    LanguageTypeES
 }LanguageType;
 
 
 #define BoolToSTR(bool) (bool) ? @"TRUE" : @"FALSE"
+#define BoolToSTRNumber(bool) (bool) ? @"1" : @"0"
+
 
 
 typedef enum{

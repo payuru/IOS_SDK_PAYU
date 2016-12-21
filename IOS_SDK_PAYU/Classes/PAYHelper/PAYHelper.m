@@ -24,7 +24,7 @@
     if(key!=nil&&value!=nil){
         [dicKey setObject:[NSString stringWithFormat:@"%@=%@", key, value] forKey:key];
         if(hashFlag){
-            [dicHashKey setObject:[NSString stringWithFormat:@"%lu%@", [value lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , value] forKey:key];
+            [dicHashKey setObject:[NSString stringWithFormat:@"%lu%@",(unsigned long) [value lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , value] forKey:key];
         }
     }
     
@@ -138,15 +138,15 @@
 
     for (LUProduct *product in products) {
         if(product.name!=nil)
-            [str appendFormat:@"%lu%@", [product.name lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , product.name];
+            [str appendFormat:@"%lu%@",(unsigned long) [product.name lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , product.name];
         if(product.code!=nil)
-            [str appendFormat:@"%lu%@", [product.code lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , product.code];
+            [str appendFormat:@"%lu%@",(unsigned long) [product.code lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , product.code];
         if([product.price stringValue]!=nil)
-            [str appendFormat:@"%lu%@", [[product.price stringValue] lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , [product.price stringValue]];
+            [str appendFormat:@"%lu%@",(unsigned long) [[product.price stringValue] lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , [product.price stringValue]];
         if(product.qtyString!=nil)
-            [str appendFormat:@"%lu%@", [product.qtyString lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , product.qtyString];
+            [str appendFormat:@"%lu%@",(unsigned long) [product.qtyString lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , product.qtyString];
         if(product.vatString!=nil)
-            [str appendFormat:@"%lu%@", [product.vatString lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , product.vatString];
+            [str appendFormat:@"%lu%@",(unsigned long) [product.vatString lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , product.vatString];
       //  [str appendFormat:@"%lu%@", [priceT lengthOfBytesUsingEncoding:NSUTF8StringEncoding] , priceT];
     }
    

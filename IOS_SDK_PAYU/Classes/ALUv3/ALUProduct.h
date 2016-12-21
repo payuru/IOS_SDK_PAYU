@@ -16,7 +16,8 @@
     NSNumber *price; // проверка на «.» и положительную часть ORDER_PRICE[]
     NSUInteger qty;
     NSUInteger vat;
-    PRICES_CURRENCYType currency;
+    NSString *pinfo;
+    NSString *ver;
 
     
 }
@@ -25,9 +26,9 @@
 @property (nonatomic,readonly) NSString *code;
 @property (nonatomic,readonly) NSNumber *price;
 @property (nonatomic,readonly) NSUInteger qty;
-@property (nonatomic,readonly) PRICES_CURRENCYType currency;
-
--(id)initALUProductWithName:(NSString*)Name code:(NSString*)Code price:(NSNumber*)Price qty:(NSUInteger)Qty currency:(PRICES_CURRENCYType)Currency;
+@property (nonatomic,strong) NSString *pinfo;
+@property (nonatomic,strong) NSString *ver;
+-(id)initALUProductWithName:(NSString*)Name code:(NSString*)Code price:(NSNumber*)Price qty:(NSUInteger)Qty;
 -(NSString*)qtyString;
 -(NSString*)vatString;
 

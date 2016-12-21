@@ -34,10 +34,10 @@
     return self;
 }
 -(NSString*)qtyString{
-    return  [NSString stringWithFormat:@"%lu",qty];
+    return  [NSString stringWithFormat:@"%lu",(unsigned long)qty];
 }
 -(NSString*)vatString{
-    return  [NSString stringWithFormat:@"%lu",vat];
+    return  [NSString stringWithFormat:@"%lu",(unsigned long)vat];
 }
 
 @end

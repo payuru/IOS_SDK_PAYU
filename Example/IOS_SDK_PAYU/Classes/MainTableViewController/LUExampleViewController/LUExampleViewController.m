@@ -30,8 +30,10 @@
     LUProduct *product2=[[LUProduct alloc] initLUProductWithName:@"test2" code:@"123" price:[NSNumber numberWithInt:100] qty:10 vat:10 ];
     LU *lu=[[LU alloc] initWithSecretKey:@"e5|S|X~0@l10_?R4b8|1" merchant:@"ipolhtst" orderRef:@"3886786" orderDate:@"2016-11-21 10:51:58"];
     
-    [lu addProduct:product error:nil];
-    [lu addProduct:product2 error:nil];
+    NSError *error;
+    [lu addProduct:product error:&error];
+    NSError *error2;
+    [lu addProduct:product2 error:&error2];
     
     lu.BILL_FNAME=@"Max";
     lu.BILL_LNAME=@"Mel";
@@ -40,15 +42,15 @@
     lu.BILL_COUNTRYCODE=CountryCodeRU;
     lu.LANGUAGE=LanguageTypeRU;
     lu.DISCOUNT=[NSNumber numberWithFloat:200.1];
-     lu.TESTORDER=NO;
+    lu.TESTORDER=NO;
     lu.Debug=YES;
     lu.PAY_METHOD=LUPayMethodTypeCCVISAMC;
-    
-    
-     lu.ORDER_SHIPPING=[NSNumber numberWithInt:1200];
+    lu.ORDER_TIMEOUT=[NSNumber numberWithInt:200];
+    lu.TIMEOUT_URL=@"http://yandex.ru";
+    lu.ORDER_SHIPPING=[NSNumber numberWithInt:1200];
     lu.PRICES_CURRENCY=USD;
     
-    NSError *error;
+    error=nil;
     [self.webView loadRequest: [lu getLURequstWitherror:&error]];
 }
 

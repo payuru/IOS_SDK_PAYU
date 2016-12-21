@@ -13,24 +13,23 @@
 @synthesize code;
 @synthesize price;
 @synthesize qty;
-@synthesize currency;
+@synthesize pinfo;
+@synthesize ver;
 
--(id)initALUProductWithName:(NSString*)Name code:(NSString*)Code price:(NSNumber*)Price qty:(NSUInteger)Qty currency:(PRICES_CURRENCYType)Currency{
+-(id)initALUProductWithName:(NSString*)Name code:(NSString*)Code price:(NSNumber*)Price qty:(NSUInteger)Qty{
     self=[super init];
     if(self){
         name=Name;
         code=Code;
         price=Price;
         qty=Qty;
-        currency=Currency;
     }
     return self;
 }
 -(NSString*)qtyString{
-    return  [NSString stringWithFormat:@"%lu",qty];
+    return  [NSString stringWithFormat:@"%lu",(unsigned long)qty];
 }
 -(NSString*)vatString{
-    return  [NSString stringWithFormat:@"%lu",vat];
+    return  [NSString stringWithFormat:@"%lu",(unsigned long)vat];
 }
-
 @end

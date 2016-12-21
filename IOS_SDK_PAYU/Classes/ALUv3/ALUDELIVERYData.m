@@ -13,6 +13,7 @@
 @synthesize DELIVERY_FNAME;
 @synthesize DELIVERY_LNAME;
 @synthesize DELIVERY_PHONE;
+@synthesize DELIVERY_EMAIL;
 @synthesize DELIVERY_ADDRESS;
 @synthesize DELIVERY_ZIPCODE;
 @synthesize DELIVERY_CITY;

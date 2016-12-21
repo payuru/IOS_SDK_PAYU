@@ -61,11 +61,11 @@
     }
     
     
-    [hashs insertObject:[NSString stringWithFormat:@"%lu%@",[[orderDetails valueForKey:@"MERCHANT"] length],[orderDetails valueForKey:@"MERCHANT"]] atIndex:0];
-    [hashs insertObject:[NSString stringWithFormat:@"%lu%@",[[orderDetails valueForKey:@"ORDER_REF"] length],[orderDetails valueForKey:@"ORDER_REF"]] atIndex:1];
-    [hashs insertObject:[NSString stringWithFormat:@"%lu%@",[[orderDetails valueForKey:@"ORDER_AMOUNT"] length],[orderDetails valueForKey:@"ORDER_AMOUNT"]] atIndex:2];
-    [hashs insertObject:[NSString stringWithFormat:@"%lu%@",[[orderDetails valueForKey:@"ORDER_CURRENCY"] length],[orderDetails valueForKey:@"ORDER_CURRENCY"]] atIndex:3];
-    [hashs insertObject:[NSString stringWithFormat:@"%lu%@",[[orderDetails valueForKey:@"IDN_DATE"] length],[orderDetails valueForKey:@"IDN_DATE"]] atIndex:4];
+    [hashs insertObject:[NSString stringWithFormat:@"%lu%@",(unsigned long)[[orderDetails valueForKey:@"MERCHANT"] length],[orderDetails valueForKey:@"MERCHANT"]] atIndex:0];
+    [hashs insertObject:[NSString stringWithFormat:@"%lu%@",(unsigned long)[[orderDetails valueForKey:@"ORDER_REF"] length],[orderDetails valueForKey:@"ORDER_REF"]] atIndex:1];
+    [hashs insertObject:[NSString stringWithFormat:@"%lu%@",(unsigned long)[[orderDetails valueForKey:@"ORDER_AMOUNT"] length],[orderDetails valueForKey:@"ORDER_AMOUNT"]] atIndex:2];
+    [hashs insertObject:[NSString stringWithFormat:@"%lu%@",(unsigned long)[[orderDetails valueForKey:@"ORDER_CURRENCY"] length],[orderDetails valueForKey:@"ORDER_CURRENCY"]] atIndex:3];
+    [hashs insertObject:[NSString stringWithFormat:@"%lu%@",(unsigned long)[[orderDetails valueForKey:@"IDN_DATE"] length],[orderDetails valueForKey:@"IDN_DATE"]] atIndex:4];
     
     NSString *postString = [parts componentsJoinedByString:@"&"];
     NSString *hashString = [hashs componentsJoinedByString:@""];

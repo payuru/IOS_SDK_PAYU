@@ -16,8 +16,8 @@
 		37E18671E70DB8DFDB3677B690F42E7C /* IOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3391D3966D56E52E8D71D42BD34DD719 /* IOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		473C1298DEA7F03DE685B0877F594D2D /* XMLDictionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32399AA4FBAC481DEE549A9E7252FBD3 /* XMLDictionary.framework */; };
 		4BEC911C57AF6BED26795B823E69D405 /* XMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4997366C8A89C4D81BB267A94DA582E4 /* XMLDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5059724D1E04383E00D4CA30 /* MCMutableArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 5059724B1E04383E00D4CA30 /* MCMutableArray.h */; };
-		5059724E1E04383E00D4CA30 /* MCMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 5059724C1E04383E00D4CA30 /* MCMutableArray.m */; };
+		503196251E09C80D0018B183 /* MCMutableArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 503196231E09C80D0018B183 /* MCMutableArray.h */; };
+		503196261E09C80D0018B183 /* MCMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 503196241E09C80D0018B183 /* MCMutableArray.m */; };
 		505972611E04A00600D4CA30 /* PAYHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5059725F1E04A00600D4CA30 /* PAYHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		505972621E04A00600D4CA30 /* PAYHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 505972601E04A00600D4CA30 /* PAYHelper.m */; };
 		505972631E04A07B00D4CA30 /* CountryCode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5059725A1E049A8500D4CA30 /* CountryCode.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -129,8 +129,8 @@
 		49A7D9E43FA63221D123C25805F68B1A /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		49FC12B71D24741A861075E0540EB69C /* ALUCardInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ALUCardInfo.m; sourceTree = "<group>"; };
 		4A52712E32F11B482C8728FBFC0F2261 /* Pods-IOS_SDK_PAYU_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-IOS_SDK_PAYU_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		5059724B1E04383E00D4CA30 /* MCMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMutableArray.h; sourceTree = "<group>"; };
-		5059724C1E04383E00D4CA30 /* MCMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMutableArray.m; sourceTree = "<group>"; };
+		503196231E09C80D0018B183 /* MCMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMutableArray.h; sourceTree = "<group>"; };
+		503196241E09C80D0018B183 /* MCMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMutableArray.m; sourceTree = "<group>"; };
 		5059725A1E049A8500D4CA30 /* CountryCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryCode.h; sourceTree = "<group>"; };
 		5059725F1E04A00600D4CA30 /* PAYHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAYHelper.h; sourceTree = "<group>"; };
 		505972601E04A00600D4CA30 /* PAYHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAYHelper.m; sourceTree = "<group>"; };
@@ -233,7 +233,6 @@
 		0769B3DF3C2290262953848E3B2B89F3 /* LU */ = {
 			isa = PBXGroup;
 			children = (
-				5059724A1E04383E00D4CA30 /* MCMutableArray */,
 				10BF28EC83F87AA457E4F4A76B1F31F7 /* LU.h */,
 				29BFEE1567B3457812581AA31B4991ED /* LU.m */,
 				AFBB00D57F41A2872BAB14C5C89A7E8D /* LUProduct.h */,
@@ -246,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				3DC96E46488B1A054110D14027A06B43 /* PAYU_SDK.h */,
+				503196221E09C80D0018B183 /* MCMutableArray */,
 				505972501E04936400D4CA30 /* PAYHelper */,
 				505972531E04936400D4CA30 /* CountryCode */,
 				5059724F1E04933B00D4CA30 /* CountryCode */,
@@ -307,14 +307,13 @@
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		5059724A1E04383E00D4CA30 /* MCMutableArray */ = {
+		503196221E09C80D0018B183 /* MCMutableArray */ = {
 			isa = PBXGroup;
 			children = (
-				5059724B1E04383E00D4CA30 /* MCMutableArray.h */,
-				5059724C1E04383E00D4CA30 /* MCMutableArray.m */,
+				503196231E09C80D0018B183 /* MCMutableArray.h */,
+				503196241E09C80D0018B183 /* MCMutableArray.m */,
 			);
-			name = MCMutableArray;
-			path = ../../../../Pay_U/IOS_SDK_PAYU/IOS_SDK_PAYU/LU/MCMutableArray;
+			path = MCMutableArray;
 			sourceTree = "<group>";
 		};
 		5059724F1E04933B00D4CA30 /* CountryCode */ = {
@@ -572,7 +571,6 @@
 				74C577C95ABFF3FE2867B9A4E6F503DE /* ALUCardInfo.h in Headers */,
 				C442C93594749FC436B42A9AF3433064 /* ALUDELIVERYData.h in Headers */,
 				30BA041AA9364C6FDCCCF5FCFAB958E9 /* ALUProduct.h in Headers */,
-				5059724D1E04383E00D4CA30 /* MCMutableArray.h in Headers */,
 				B1D4BE03EF96C4B11796BFA4EE737336 /* IDN.h in Headers */,
 				37E18671E70DB8DFDB3677B690F42E7C /* IOS.h in Headers */,
 				5A388F342E3F838B5790EF64C58F27A3 /* IOS_SDK_PAYU-umbrella.h in Headers */,
@@ -581,6 +579,7 @@
 				B303E5F859F0214B76984D11BAE1A40E /* LUProduct.h in Headers */,
 				23F1D775465A649C11082C63A9AC5D08 /* NSData+Base64.h in Headers */,
 				6A04F589C3F3836BDEEBC8D70EA52A55 /* PAYU_SDK.h in Headers */,
+				503196251E09C80D0018B183 /* MCMutableArray.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,8 +747,8 @@
 			files = (
 				505972621E04A00600D4CA30 /* PAYHelper.m in Sources */,
 				963C7D6CC01E67886F381A57E72E190E /* ALU.m in Sources */,
+				503196261E09C80D0018B183 /* MCMutableArray.m in Sources */,
 				F81C38898F6B02BE191F3AE54A95DC21 /* ALUBillClientInfo.m in Sources */,
-				5059724E1E04383E00D4CA30 /* MCMutableArray.m in Sources */,
 				E6E87C0604FBEDDBD581B3BF0F279733 /* ALUCardInfo.m in Sources */,
 				8BBACD37F722D5EA0527190FF27317AF /* ALUDELIVERYData.m in Sources */,
 				B413BE3D1FCC1824E68DD0B4CA158EDB /* ALUProduct.m in Sources */,

@@ -185,10 +185,10 @@
     [hashs addHash:LUPAY_METHODTypeString(PAY_METHOD)];
     
     [parts addObject:[ORDER_TIMEOUT stringValue]  key:@"ORDER_TIMEOUT"];
-    [hashs addHash:[ORDER_TIMEOUT stringValue]];
+    //[hashs addHash:[ORDER_TIMEOUT stringValue]];
     
     [parts addObject:TIMEOUT_URL  key:@"TIMEOUT_URL"];
-    [hashs addHash:TIMEOUT_URL];
+   // [hashs addHash:TIMEOUT_URL];
     
     [parts addObject:BoolToSTR(Debug) key:@"DEBUG"];
     [parts addObject:BoolToSTR(TESTORDER) key:@"TESTORDER"];

@@ -68,25 +68,25 @@
 }
 -(BOOL)addProduct:(ALUProduct*)product error:(NSError**)error{
     if(product.name==nil||product.name.length==0){
-        *error=  [NSError errorWithDomain:@"LUProductError" code:ProductErrorCodesEmptyName userInfo:nil];
+        *error=  [NSError errorWithDomain:@"ALUProductError" code:ProductErrorCodesEmptyName userInfo:nil];
         return NO;
     }else{
         if(product.name.length>155){
-            *error=  [NSError errorWithDomain:@"LUProductError" code:ProductErrorCodesLongName userInfo:nil];
+            *error=  [NSError errorWithDomain:@"ALUProductError" code:ProductErrorCodesLongName userInfo:nil];
             return NO;
         }
     }
     if(product.code==nil||product.code.length==0){
-        *error=  [NSError errorWithDomain:@"LUProductError" code:ProductErrorCodesEmptyCode userInfo:nil];
+        *error=  [NSError errorWithDomain:@"ALUProductError" code:ProductErrorCodesEmptyCode userInfo:nil];
         return NO;
     }else{
         if(product.code.length>50){
-            *error=  [NSError errorWithDomain:@"LUProductError" code:ProductErrorCodesLongCode userInfo:nil];
+            *error=  [NSError errorWithDomain:@"ALUProductError" code:ProductErrorCodesLongCode userInfo:nil];
             return NO;
         }
     }
     if(product.price==nil){
-        *error=  [NSError errorWithDomain:@"LUProductError" code:ProductErrorCodesEmptyPrice userInfo:nil];
+        *error=  [NSError errorWithDomain:@"ALUProductError" code:ProductErrorCodesEmptyPrice userInfo:nil];
         return NO;
     }
     [products addObject:product];
@@ -122,7 +122,8 @@
     
     [payHelper addObject:DELIVERYDATA.DELIVERY_ADDRESS key:@"DELIVERY_ADDRESS" hash:YES];
     [payHelper addObject:DELIVERYDATA.DELIVERY_CITY key:@"DELIVERY_CITY" hash:YES];
-    [payHelper addObject:DELIVERYDATA.DELIVERY_COUNTRYCODE key:@"DELIVERY_COUNTRYCODE" hash:YES];
+    [payHelper addObject:CountryCodeString(DELIVERYDATA.DELIVERY_COUNTRYCODE) key:@"DELIVERY_COUNTRYCODE" hash:YES];
+    [payHelper addObject:DELIVERYDATA.DELIVERY_EMAIL key:@"DELIVERY_EMAIL" hash:YES];
     [payHelper addObject:DELIVERYDATA.DELIVERY_FNAME key:@"DELIVERY_FNAME" hash:YES];
     [payHelper addObject:DELIVERYDATA.DELIVERY_LNAME key:@"DELIVERY_LNAME" hash:YES];
     [payHelper addObject:DELIVERYDATA.DELIVERY_PHONE key:@"DELIVERY_PHONE" hash:YES];
@@ -152,11 +153,13 @@
     for (ALUProduct *product in products) {
         [payHelper addObject:product.qtyString key:@"ORDER_QTY[]" hash:YES];
     }
-   
-     for (ALUProduct *product in products) {
-         NSString *priceT=PriceCurrencyTypeString(product.currency);
-         [payHelper addObject:priceT key:@"PRICES_CURRENCY" hash:YES];
+    for (ALUProduct *product in products) {
+        [payHelper addObject:product.pinfo key:@"ORDER_PINFO[]" hash:YES];
     }
+    for (ALUProduct *product in products) {
+        [payHelper addObject:product.ver key:@"ORDER_VER[]" hash:YES];
+    }
+   
    
     [payHelper addObject:ORDER_REF key:@"ORDER_REF" hash:YES];
     

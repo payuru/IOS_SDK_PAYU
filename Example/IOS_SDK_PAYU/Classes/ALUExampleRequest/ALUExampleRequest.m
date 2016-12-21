@@ -26,8 +26,8 @@
     ALU *alu = [[ALU alloc] initWithSecretKey:@"e5|S|X~0@l10_?R4b8|1" merchant:@"ipolhtst" orderRef:@"3886786" orderDate:dateNowString];     //инициализация сервиса ALU и задаем секретный ключ MERCHANT,orderRef и orderDate
 
     // создаем продукты обязательне поля
-    ALUProduct *product=[[ALUProduct alloc] initALUProductWithName:@"Phone" code:@"12" price:[NSNumber numberWithInt:1000] qty:1 currency:NONE];
-    ALUProduct *product2=[[ALUProduct alloc] initALUProductWithName:@"Phone2" code:@"13" price:[NSNumber numberWithInt:1] qty:1 currency:NONE];
+    ALUProduct *product=[[ALUProduct alloc] initALUProductWithName:@"Phone" code:@"12" price:[NSNumber numberWithInt:1000] qty:1];
+    ALUProduct *product2=[[ALUProduct alloc] initALUProductWithName:@"Phone2" code:@"13" price:[NSNumber numberWithInt:1] qty:1 ];
     
     //добавляем продукты в метод отправки
     NSError *productError;
@@ -52,8 +52,8 @@
     alu.DELIVERYDATA.DELIVERY_ZIPCODE=@"55416";
     alu.DELIVERYDATA.DELIVERY_CITY=@"Moscow";
     alu.DELIVERYDATA.DELIVERY_STATE=@"Moscow";
-    alu.DELIVERYDATA.DELIVERY_COUNTRYCODE=@"RU";
-    //alu.CLIENT_IP=@"122.22.12.23"; //ip клиента
+    alu.DELIVERYDATA.DELIVERY_COUNTRYCODE=CountryCodeRU;
+    alu.CLIENT_IP=@"122.22.12.23"; //ip клиента
     
     alu.BIllCLIENTINFO=[[ALUBillClientInfo alloc] initWithFNAME:@"Mel" LNAME:@"Maxim" EMAIL:@"lolo@gmail.com" PHONE:@"7-926-177-77-22" COUNTRYCODE:CountryCodeRU];// данные покупателя
     alu.ORDER_SHIPPING=[NSNumber numberWithInt:1007];     //стоимость доставки

@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'IOS_SDK_PAYU'
   s.version          = '0.0.1'
-  s.summary          = 'A short description of IOS_SDK_PAYU.'
+  s.summary          = 'Апи для работы с платежным сервисом PAYU'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -22,7 +22,7 @@ TODO: Add long description of the pod here.
                        DESC
 
   s.homepage         = 'https://github.com/payuru/IOS_SDK_PAYU'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshots     = 'http://i.imgur.com/UDHGr6v.png', 'http://i.imgur.com/uiYZ8a1.png','http://i.imgur.com/vxXdOAK.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Maxim Melikhov' => 'ixotdog@gmail.com' }
   s.source           = { :git => 'https://github.com/payuru/IOS_SDK_PAYU.git', :tag => s.version.to_s }
